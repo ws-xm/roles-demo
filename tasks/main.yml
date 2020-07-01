@@ -1,0 +1,14 @@
+---
+- name: debug role demo
+  debug:
+    msg: "Hello my {{ testvar }} role {{ testvar1 }}"
+  changed_when: true
+  notify: my handler
+
+- name: deliver motd file
+  template:
+    src: motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0444
